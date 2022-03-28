@@ -1,28 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: backend
+      app: frontend
   template:
     metadata:
       labels:
-        app: backend
+        app: frontend
     spec:
       containers:
-      - name: hello-kubernetes
-        image: gcr.io/decisive-plasma-333810/backend
+      - name: frontend
+        image: gcr.io/decisive-plasma-333810/frontend:4
         ports:
-        - containerPort: 8080
-        env:
-        - name: DB_SERVER
-          value: 34.136.21.112
-        - name: POSTGRES_DB
-          value: test
-        - name: POSTGRES_USER
-          value: postgres
-        - name: POSTGRES_PASSWORD
-          value: admin123
+        - containerPort: 80
