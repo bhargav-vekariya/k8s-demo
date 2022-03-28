@@ -10,5 +10,5 @@ steps:
   - run
   - --filename=deployment.yaml
   - --location=us-central1-c
-  - --cluster=fronend-us
+  - --cluster=frontend-us
   - --image=gcr.io/$PROJECT_ID/frontend:$SHORT_SHA
