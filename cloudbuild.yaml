@@ -9,6 +9,6 @@ steps:
   args:
   - run
   - --filename=deployment.yaml
-  - --location=us-east1-c
+  - --location=us-central1-c
   - --cluster=backend
   - --image=gcr.io/$PROJECT_ID/backend:$SHORT_SHA
