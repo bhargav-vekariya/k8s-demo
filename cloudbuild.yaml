@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/backend:$SHORT_SHA', '.' ]
+
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/$PROJECT_ID/backend:$SHORT_SHA"]
+
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=deployment.yaml
+  - --location=us-east1-c
+  - --cluster=backend
+  - --image=gcr.io/$PROJECT_ID/backend:$SHORT_SHA
