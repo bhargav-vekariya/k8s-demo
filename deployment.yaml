@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/decisive-plasma-333810/frontend:4
+        image: gcr.io/decisive-plasma-333810/frontend
         ports:
         - containerPort: 80
